@@ -16,7 +16,8 @@ class BaseModel(Base, AllFeaturesMixin):
 app = Flask(
     __name__,
     instance_relative_config=True,
-    instance_path='/tmp'
+    instance_path='/tmp',
+    template_folder='templates',
 )
 app.config.from_object('app.default_config.Config')
 CORS(app)

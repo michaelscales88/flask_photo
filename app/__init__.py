@@ -21,14 +21,14 @@ def startup_setup():
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 
-@app.route('/')
-def index():
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post action="/image" enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
+# @app.route('/')
+# def index():
+#     return '''
+#     <!doctype html>
+#     <title>Upload new File</title>
+#     <h1>Upload new File</h1>
+#     <form method=post action="/image" enctype=multipart/form-data>
+#       <p><input type=file name=file>
+#          <input type=submit value=Upload>
+#     </form>
+#     '''
