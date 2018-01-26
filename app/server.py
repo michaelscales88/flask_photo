@@ -18,7 +18,7 @@ app = Flask(
     instance_relative_config=True,
     instance_path='/tmp'
 )
-app.config.from_object('backend.default_config.Config')
+app.config.from_object('app.default_config.Config')
 CORS(app)
 
 db = SQLAlchemy(app, model_class=BaseModel)
@@ -26,4 +26,5 @@ db = SQLAlchemy(app, model_class=BaseModel)
 
 def init_db():
     # Create database and tables
+    from app.images import Image
     db.create_all()

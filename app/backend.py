@@ -6,7 +6,8 @@ from flask_restful import Api
 api_bp = Blueprint('backend', __name__)
 api = Api(api_bp)
 
+from .images.api import ImageAPI
 
 # Register the endpoint to the api
-# api.add_resource(TaskListAPI, "/get-tasks")
+api.add_resource(ImageAPI, "/image")
 
