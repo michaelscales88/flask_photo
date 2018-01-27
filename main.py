@@ -8,7 +8,7 @@ def config_directory(work_dir):
 
 
 if __name__ == '__main__':
-    config_directory(os.path.dirname(__file__))
+    config_directory(os.path.dirname(os.path.abspath(__file__)))
 
     from app import app
 

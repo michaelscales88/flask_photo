@@ -1,6 +1,5 @@
 # app/server.py
 from flask import Flask
-from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_mixins import AllFeaturesMixin
@@ -20,7 +19,6 @@ app = Flask(
     template_folder='templates',
 )
 app.config.from_object('app.default_config.Config')
-CORS(app)
 
 db = SQLAlchemy(app, model_class=BaseModel)
 
