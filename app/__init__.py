@@ -1,8 +1,10 @@
 from flask_bootstrap import Bootstrap
 from .server import app, db, init_db, BaseModel
+from .services import get_nav
 
 
 Bootstrap(app)
+nav = get_nav(app)
 init_db()
 
 from .frontend import api_bp as frontend_bp

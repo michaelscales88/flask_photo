@@ -10,21 +10,19 @@
 {% endif %}
 {% endblock %}
 
-{# IE compatibility
-#}
+<!-- IE compatibility -->
 {% import "bootstrap/fixes.html" as fixes %}
 
 {% block head %}
-{{ super() }}
-{{ fixes.ie8() }}
-<link rel="shortcut icon"
-      href="{{ url_for('static', filename='img/favicon.ico') }}">
+    {{ super() }}
+    {{ fixes.ie8() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 {%- endblock %}
 
 {% block styles -%}
-{{ super() }}
+    {{ super() }}
 {% endblock %}
 
 {% block navbar %}
-{#{{nav.main_nav.render()}}#}
+    {{nav.main_nav.render()}}
 {% endblock %}
