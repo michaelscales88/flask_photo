@@ -103,3 +103,8 @@ ENV/
 
 # pyCharm folder
 .idea/
+
+# reactJS
+node_modules/
+package-lock.json
+app/static/

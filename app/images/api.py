@@ -1,5 +1,5 @@
 import os
-from flask import jsonify, current_app
+from flask import jsonify, current_app, request
 from flask_restful import Resource, reqparse
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import FileStorage
@@ -46,7 +46,6 @@ class ImageAPI(Resource):
 
     def post(self):
         print('Hit PUT ImageAPI')
-
         # Check whether the request contains a file
         if (
             self.args['file'] and
