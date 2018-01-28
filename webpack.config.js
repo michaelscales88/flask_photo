@@ -3,12 +3,12 @@
 const webpack = require('webpack'),
       path = require('path');
 
-let config = {
+const config = {
   entry: {
-    upload: './app/static/js/upload.js',
+    upload: __dirname + '/app/static/js/upload.js',
   },
   output: {
-    path: __dirname + '/app/static',
+    path: __dirname + '/app/static/dist',
     filename: "bundle--[name].js"
   },
   module: {

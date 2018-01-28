@@ -11,7 +11,7 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
+app/static/dist/
 downloads/
 eggs/
 .eggs/
@@ -107,4 +107,3 @@ ENV/
 # reactJS
 node_modules/
 package-lock.json
-app/static/bundle--*.js

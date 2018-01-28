@@ -8,5 +8,5 @@
 {% block scripts %}
     {{ super() }}
     <!-- Attach React components -->
-    <script type="text/javascript" src="{{ url_for('static', filename='bundle--upload.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='dist/bundle--upload.js') }}"></script>
 {% endblock %}
