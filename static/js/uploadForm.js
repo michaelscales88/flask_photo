@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
-class UploadForm extends React.Component {
+class UploadFormComponent extends React.Component {
     constructor() {
         super();
         this.state = { files: [] }
@@ -43,4 +43,4 @@ class UploadForm extends React.Component {
     }
 }
 
-export default UploadForm;
+export default UploadFormComponent;

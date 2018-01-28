@@ -1,5 +1,4 @@
-/*!* SCSS *!*/
-/*@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";*/
-
-/*!* CSS *!*/
-/*@import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";*/
+body {
+    background: black;
+    padding-bottom: 30px;
+}

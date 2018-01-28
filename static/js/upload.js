@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UploadForm from './uploadForm';
+import UploadFormComponent from './uploadForm';
 
-ReactDOM.render(<UploadForm/>, document.getElementById('reactEntry'));
 
+ReactDOM.render(<UploadFormComponent />, document.getElementById('reactEntry'));
