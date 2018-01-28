@@ -104,7 +104,7 @@ ENV/
 # pyCharm folder
 .idea/
 
-# Frontend build
+# reactJS
 node_modules/
-static/
 package-lock.json
+app/static/

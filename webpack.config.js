@@ -1,11 +1,15 @@
-var webpack = require('webpack');  
-module.exports = {  
-  entry: [
-    "./app/js/app.js"
-  ],
+'use strict';
+
+const webpack = require('webpack'),
+      path = require('path');
+
+let config = {
+  entry: {
+    index: './app/js/index.js',
+  },
   output: {
     path: __dirname + '/app/static',
-    filename: "bundle.js"
+    filename: "bundle--[name].js"
   },
   module: {
     loaders: [
@@ -22,3 +26,5 @@ module.exports = {
   plugins: [
   ]
 };
+
+module.exports = config;

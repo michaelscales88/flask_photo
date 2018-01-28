@@ -46,7 +46,6 @@ class ImageAPI(Resource):
 
     def post(self):
         print('Hit PUT ImageAPI')
-
         # Check whether the request contains a file
         if (
             self.args['file'] and
