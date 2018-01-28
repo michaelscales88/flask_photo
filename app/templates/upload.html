@@ -2,9 +2,11 @@
 
 {% block content %}
     {{ super() }}
+    <div id="reactEntry"></div>
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
     <!-- Attach React components -->
+    <script type="text/javascript" src="{{ url_for('static', filename='bundle--upload.js') }}"></script>
 {% endblock %}

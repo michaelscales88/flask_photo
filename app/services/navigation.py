@@ -6,10 +6,11 @@ def get_nav(app):
     nav = Nav(app)
     nav.register_element('main_nav', Navbar(
             View('Home', 'frontend.serve_pages', page='index'),
-            # Subgroup(
-            #     '',
-            #     Separator(),
-            # ),
+            Subgroup(
+                'Upload',
+                View('Upload Images', 'frontend.serve_pages', page='upload'),
+                Separator(),
+            ),
         )
     )
     return nav
