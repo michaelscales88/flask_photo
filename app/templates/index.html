@@ -1,11 +1,12 @@
-<html>
-<head>
-</head>
+{% extends 'base.html' %}
 
-<body>
-  <div id="reactEntry"></div>
-</body>
+{% block content %}
+    {{ super() }}
+    <div id="reactEntry"></div>
+{% endblock %}
 
-<!-- Attach React components -->
-<script type="text/javascript" src="{{ url_for('static', filename='bundle--index.js') }}"></script>
-</html>
+{% block scripts %}
+    {{ super() }}
+    <!-- Attach React components -->
+    <script type="text/javascript" src="{{ url_for('static', filename='bundle--index.js') }}"></script>
+{% endblock %}

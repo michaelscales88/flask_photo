@@ -107,4 +107,4 @@ ENV/
 # reactJS
 node_modules/
 package-lock.json
-app/static/
+app/static/bundle--*.js

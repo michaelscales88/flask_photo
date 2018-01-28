@@ -5,7 +5,7 @@ const webpack = require('webpack'),
 
 let config = {
   entry: {
-    index: './app/js/index.js',
+    index: './app/static/js/index.js',
   },
   output: {
     path: __dirname + '/app/static',
