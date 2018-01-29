@@ -1,5 +1,5 @@
 from flask_bootstrap import Bootstrap
-from .server import app, db, init_db, BaseModel
+from .server import app, db, ma, init_db, BaseModel
 from .services import get_nav
 
 

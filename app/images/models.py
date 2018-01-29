@@ -4,7 +4,7 @@ from app import db
 class Image(db.Model):
 
     __tablename__ = 'image'
-    __repr_attrs__ = ['id', 'title', 'description', 'filename', 'visible']
+    __repr_attrs__ = ['id', 'title', 'description', 'filename']
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)

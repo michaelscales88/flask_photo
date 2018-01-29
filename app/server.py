@@ -1,5 +1,6 @@
 # app/server.py
 from flask import Flask
+from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_mixins import AllFeaturesMixin
@@ -20,6 +21,7 @@ app = Flask(
 app.config.from_object('app.default_config.Config')
 
 db = SQLAlchemy(app, model_class=BaseModel)
+ma = Marshmallow(app)
 
 
 def init_db():
