@@ -1,1 +1,1 @@
-from .navigation import get_nav
+from .navigation import init_nav

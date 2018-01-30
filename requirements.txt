@@ -1,7 +1,8 @@
 flask
 flask_bootstrap
-flask_nav
+flask_login
 flask_marshmallow
+flask_nav
 flask_restful
 flask_sqlalchemy
 marshmallow_sqlalchemy

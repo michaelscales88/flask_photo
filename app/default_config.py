@@ -2,6 +2,8 @@ import os
 
 
 class Config:
+    SECRET_KEY = os.urandom(24)  # Generate a random session key
+
     DEBUG = True
     BASEDIR = os.path.abspath(os.path.dirname(__file__))
     PACKAGEDIR = os.path.dirname(BASEDIR)
