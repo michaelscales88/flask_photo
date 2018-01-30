@@ -1,7 +1,7 @@
 from flask import url_for
 from flask_bootstrap import Bootstrap
 from .server import app, db, login_manager, ma, init_db, BaseModel
-from .services import init_nav
+from .services import init_nav, make_dir
 
 
 Bootstrap(app)
@@ -17,14 +17,13 @@ app.register_blueprint(backend_bp)
 # Configuration for APP
 @app.before_first_request
 def startup_setup():
+    # Ensure the tmp/images directory exists
+    make_dir(app.config['UPLOAD_FOLDER'])
+
     # Make database and tables
     init_db()
 
     # Inject session to be used by Models
     BaseModel.set_session(db.session)
-
-    # Ensure the photo directory exists
-    import os
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
     login_manager.login_view = url_for('frontend.serve_pages', page='login')

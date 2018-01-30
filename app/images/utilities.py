@@ -1,3 +1,4 @@
+import os
 from flask import current_app, abort, send_from_directory
 from werkzeug.exceptions import BadRequest
 
@@ -17,6 +18,13 @@ def send_or_404(file):
         return send_from_directory(current_app.config['UPLOAD_FOLDER'], file)
     except BadRequest:
         return abort(404)
+
+
+def save_file(file, filename):
+    file.save(
+        os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+    )
+    return True
 
 
 class ImageSchema(ma.ModelSchema):

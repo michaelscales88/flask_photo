@@ -1,11 +1,10 @@
-import os
-from flask import jsonify, current_app
+from flask import jsonify
 from flask_restful import Resource, reqparse
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import FileStorage
 
 from .models import Image
-from .utilities import allowed_file, ImageSchema, send_or_404
+from .utilities import allowed_file, ImageSchema, send_or_404, save_file
 
 
 class ImagesAPI(Resource):
@@ -52,22 +51,23 @@ class ImageAPI(Resource):
         print('Hit PUT ImageAPI')
         # Check whether the request contains a file
         if (
-                self.args['file'] and
-                self.args['file'].filename and
-                allowed_file(self.args['file'].filename)
+            self.args['file'] and
+            self.args['file'].filename and
+            allowed_file(self.args['file'].filename)
         ):
             # Save the image to the upload folder
-            file_name = secure_filename(self.args['file'].filename)
-            self.args['file'].save(
-                os.path.join(current_app.config['UPLOAD_FOLDER'], file_name)
+            successful_save = save_file(
+                self.args['file'],
+                secure_filename(self.args['file'].filename)
             )
+
             # Create record for the image
-            Image.create(
-                title=self.args['file'].filename,
-                description='',
-                filename=self.args['file'].filename
-            )
-            print('adding an image')
+            if successful_save:
+                Image.create(
+                    title=self.args['file'].filename,
+                    description='',
+                    filename=self.args['file'].filename
+                )
 
     def delete(self):
         print('Hit DELETE ImageAPI')

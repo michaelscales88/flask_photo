@@ -44,5 +44,5 @@ def login_nav():
 def init_nav(app):
     nav = Nav(app)
     nav.register_element('main_nav', main_nav)
-    nav.register_element('login_nav', login_nav)
+    nav.register_element('main_nav', login_nav)
     nav.init_app(app)
