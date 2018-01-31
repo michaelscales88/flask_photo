@@ -2,6 +2,8 @@
 from flask import Blueprint, render_template, abort
 from flask_login import login_required
 
+from .user.utitilities import login
+
 
 api_bp = Blueprint('frontend', __name__)
 
@@ -15,10 +17,11 @@ def serve_pages(page):
             title='Home'
         )
     elif page in ("login.html", "login"):
-        return render_template(
-            'login.html',
-            title='Login'
-        )
+        # return render_template(
+        #     'login.html',
+        #     title='Login'
+        # )
+        return login()
     elif page in ("upload.html", "upload"):
         return serve_login_pages(page)
     else:

@@ -1,5 +1,8 @@
-from flask import url_for
+from flask import url_for, g
 from flask_bootstrap import Bootstrap
+from flask_login import current_user
+
+
 from .server import app, db, login_manager, ma, init_db, BaseModel
 from .services import init_nav, make_dir
 
@@ -27,3 +30,8 @@ def startup_setup():
     BaseModel.set_session(db.session)
 
     login_manager.login_view = url_for('frontend.serve_pages', page='login')
+
+
+@app.before_request
+def before_request():
+    g.user = current_user
