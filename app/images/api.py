@@ -61,4 +61,3 @@ class ImageAPI(Resource):
 
     def delete(self):
         pass
-fla
