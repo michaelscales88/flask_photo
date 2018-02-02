@@ -1,5 +1,6 @@
 # app/server.py
 from flask import Flask
+from flask_login import LoginManager
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
@@ -22,9 +23,12 @@ app.config.from_object('app.default_config.Config')
 
 db = SQLAlchemy(app, model_class=BaseModel)
 ma = Marshmallow(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 def init_db():
     # Create database and tables
     from app.images import Image
+    from app.user import User
     db.create_all()

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ImageGallery from 'react-image-gallery';
 import request from 'superagent';
 
@@ -8,29 +8,29 @@ export default class ImageGalleryComponent extends Component {
     constructor() {
         super();
         this.state = {
-          showIndex: false,
-          showBullets: true,
-          infinite: true,
-          showThumbnails: false,
-          showFullscreenButton: true,
-          showGalleryFullscreenButton: true,
-          showPlayButton: true,
-          showGalleryPlayButton: true,
-          showNav: true,
-          slideDuration: 450,
-          slideInterval: 2000
+            showIndex: false,
+            showBullets: true,
+            infinite: true,
+            showThumbnails: false,
+            showFullscreenButton: true,
+            showGalleryFullscreenButton: true,
+            showPlayButton: true,
+            showGalleryPlayButton: true,
+            showNav: true,
+            slideDuration: 450,
+            slideInterval: 2000
         };
-      }
+    }
+
     render() {
-        let images = []
+        let images = [];
         request
             .get('/get-images')
             .then(function (res) {
                 let data = res.body.data;
                 for (let i = 0, len = data.length; i < len; i++) {
                     images.push({
-                        original: "/image?" + $.param({ image: data[i].filename }),
-                        thumbnail: "/image?" + $.param({ image: data[i].filename, thumbnail: true }),
+                        original: "/image?" + $.param({image: data[i].filename}),
                         originalAlt: data[i].filename,
                         description: data[i].description
                     });
@@ -40,7 +40,7 @@ export default class ImageGalleryComponent extends Component {
                 // err.message, err.response
             });
         return (
-            <ImageGallery 
+            <ImageGallery
                 items={images}
                 showIndex={this.state.showIndex}
                 infinite={this.state.infinite}
@@ -52,7 +52,7 @@ export default class ImageGalleryComponent extends Component {
                 showNav={this.state.showNav}
                 slideDuration={this.state.slideDuration}
                 slideInterval={this.state.slideInterval}
-                showBullets={this.state.showBullets} />
+                showBullets={this.state.showBullets}/>
         );
     }
 }
