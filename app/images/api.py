@@ -71,3 +71,4 @@ class ImageAPI(Resource):
 
     def delete(self):
         print('Hit DELETE ImageAPI')
+        pass
