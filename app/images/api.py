@@ -18,6 +18,7 @@ class ImagesAPI(Resource):
 
     def get(self):
         results = Image.query.filter(Image.visible == True).all()
+        print(results)
         return jsonify(
             data=self.schema.dump(results).data
         )
@@ -36,6 +37,7 @@ class ImageAPI(Resource):
         Image.session.commit()
 
     def get(self):
+        print('sending', self.args['image'])
         return send_or_404(self.args['image'])
 
     def post(self):
